@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About DesignSV | Creative Developer & Designer</title>
+    <link rel="icon" href="images/android-chrome-192x192.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#4f46e5',
+                        secondary: '#10b981',
+                        dark: '#1e293b',
+                        light: '#f8fafc',
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease forwards',
+                        'skill-bar': 'skillBar 1.5s ease-out forwards',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: 0, transform: 'translateY(20px)' },
+                            '100%': { opacity: 1, transform: 'translateY(0)' },
+                        },
+                        skillBar: {
+                            '0%': { width: '0%' },
+                            '100%': { width: 'var(--skill-level)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/css">
+        .bg-radial-gradient {
+            background: radial-gradient(circle, rgba(79, 70, 229, 0.05) 0%, transparent 70%);
+        }
+        .text-gradient {
+            background: linear-gradient(90deg, #4f46e5, #10b981);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .skill-bar {
+            --skill-level: 0%;
+        }
+        .testimonial-card {
+            perspective: 1000px;
+        }
+        .testimonial-inner {
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .testimonial-card:hover .testimonial-inner {
+            transform: rotateY(180deg);
+        }
+        .testimonial-front, .testimonial-back {
+            backface-visibility: hidden;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        .testimonial-back {
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+<body class="font-poppins bg-light text-dark">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Back Button -->
+        <a href="index.html" class="inline-flex items-center gap-2 bg-primary text-white px-5 py-3 rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 mb-8">
+            <i class="fas fa-arrow-left"></i>
+            Back to Portfolio
+        </a>
+
+        <!-- Hero Section with Floating Elements -->
+        <section class="text-center py-12 md:py-20 relative overflow-hidden bg-radial-gradient">
+            <div class="absolute top-20 left-10 w-16 h-16 rounded-full bg-primary/10 animate-float" style="animation-delay: 0.2s"></div>
+            <div class="absolute bottom-10 right-20 w-24 h-24 rounded-full bg-secondary/10 animate-float" style="animation-delay: 0.4s"></div>
+            
+            <div class="relative z-10">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+                    My <span class="text-gradient">Creative Journey</span>
+                </h1>
+                <p class="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto">
+                    From the vibrant landscapes of Kenya to the digital frontier - crafting experiences that inspire and engage
+                </p>
+                
+                <div class="mt-10 flex justify-center gap-4">
+                    <a href="#contact" class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-full transition-all flex items-center gap-2">
+                        <i class="fas fa-paper-plane"></i> Get in Touch
+                    </a>
+                    <a href="/path/to/your-cv.pdf" download="YourName-CV.pdf" class="bg-white hover:bg-gray-50 text-primary border border-primary px-6 py-3 rounded-full transition-all flex items-center gap-2">
+                        <i class="fas fa-file-alt"></i> Download CV
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Story Section with Personal Touch -->
+        <section class="py-12 animate-fade-in">
+            <div class="flex items-center mb-8">
+                <div class="w-1 h-16 bg-gradient-to-b from-primary to-secondary rounded-full mr-4"></div>
+                <h2 class="text-3xl font-bold">My Story</h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="space-y-4 text-slate-700">
+                    <p class="text-lg">
+                        Growing up in <span class="font-semibold text-primary">Kenya's vibrant culture</span>, I was surrounded by bold patterns, vivid colors, and a spirit of innovation. This environment shaped my creative perspective in ways I couldn't have imagined.
+                    </p>
+                    <p>
+                        My journey into tech began when I discovered I could combine my love for art with problem-solving through <span class="font-semibold">design and code</span>. What started as curiosity became an obsession - staying up late to master new techniques, often with nothing but YouTube tutorials and determination as my guides.
+                    </p>
+                    <p>
+                        Today, I channel that same passion into every project at <span class="font-semibold">Elite Design SV</span>, blending cultural inspiration with technical precision to create work that's both beautiful and functional.
+                    </p>
+                </div>
+                <div class="relative h-64 md:h-80 rounded-2xl overflow-hidden shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1523805009345-7448845a9e53?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                         alt="Creative workspace" 
+                         class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/70 to-transparent flex items-end p-6">
+                        <p class="text-white italic">
+                            "Design is not just what it looks like, it's how it works and makes people feel"
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section with Interactive Chart -->
+        <section class="py-12 animate-fade-in">
+            <div class="flex items-center mb-8">
+                <div class="w-1 h-16 bg-gradient-to-b from-primary to-secondary rounded-full mr-4"></div>
+                <h2 class="text-3xl font-bold">My Toolkit</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Development Skills -->
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <h3 class="flex items-center gap-3 text-xl font-semibold text-primary mb-5">
+                        <i class="fas fa-code"></i> Development
+                    </h3>
+                    <div class="space-y-5">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>HTML/CSS</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="skill-bar bg-gradient-to-r from-primary to-secondary h-2 rounded-full" style="--skill-level: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>JavaScript</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="skill-bar bg-gradient-to-r from-primary to-secondary h-2 rounded-full" style="--skill-level: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>React</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="skill-bar bg-gradient-to-r from-primary to-secondary h-2 rounded-full" style="--skill-level: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Design Skills -->
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <h3 class="flex items-center gap-3 text-xl font-semibold text-primary mb-5">
+                        <i class="fas fa-paint-brush"></i> Design
+                    </h3>
+                    <div class="space-y-5">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>UI/UX Design</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="skill-bar bg-gradient-to-r from-primary to-secondary h-2 rounded-full" style="--skill-level: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Logo Design</span>
+                                <span>88%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="skill-bar bg-gradient-to-r from-primary to-secondary h-2 rounded-full" style="--skill-level: 88%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Brand Identity</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="skill-bar bg-gradient-to-r from-primary to-secondary h-2 rounded-full" style="--skill-level: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Content Skills -->
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <h3 class="flex items-center gap-3 text-xl font-semibold text-primary mb-5">
+                        <i class="fas fa-pen-fancy"></i> Content
+                    </h3>
+                    <div class="space-y-5">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Technical Writing</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="skill-bar bg-gradient-to-r from-primary to-secondary h-2 rounded-full" style="--skill-level: 80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Creative Writing</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="skill-bar bg-gradient-to-r from-primary to-secondary h-2 rounded-full" style="--skill-level: 75%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Content Strategy</span>
+                                <span>78%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="skill-bar bg-gradient-to-r from-primary to-secondary h-2 rounded-full" style="--skill-level: 78%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work Showcase with Gallery -->
+        <section class="py-12 animate-fade-in">
+            <div class="flex items-center mb-8">
+                <div class="w-1 h-16 bg-gradient-to-b from-primary to-secondary rounded-full mr-4"></div>
+                <h2 class="text-3xl font-bold">Signature Projects</h2>
+            </div>
+            <p class="text-slate-700 mb-8 max-w-3xl">
+                Each project represents a unique challenge solved through creative thinking and technical execution. Here's a selection of work that showcases my approach to blending aesthetics with functionality.
+            </p>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Project 1 -->
+                <div class="group relative overflow-hidden rounded-xl shadow-lg">
+                    <img src="images/ranatec logo coloured.jpg" alt="RanaTec Logo" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/80 via-dark/30 to-transparent flex flex-col justify-end p-6">
+                        <h3 class="text-xl font-bold text-white">RanaTec Brand Identity</h3>
+                        <p class="text-gray-200 mt-1">Modern tech logo with vibrant color scheme</p>
+                        <div class="mt-3 flex gap-2">
+                            <span class="bg-primary/20 text-white text-xs px-2 py-1 rounded">Logo Design</span>
+                            <span class="bg-secondary/20 text-white text-xs px-2 py-1 rounded">Branding</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="group relative overflow-hidden rounded-xl shadow-lg">
+                    <img src="images/2024-10-15 (1).png" alt="Web Design" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/80 via-dark/30 to-transparent flex flex-col justify-end p-6">
+                        <h3 class="text-xl font-bold text-white">E-Commerce Platform</h3>
+                        <p class="text-gray-200 mt-1">Full-featured online store with custom UI</p>
+                        <div class="mt-3 flex gap-2">
+                            <span class="bg-primary/20 text-white text-xs px-2 py-1 rounded">Web Design</span>
+                            <span class="bg-secondary/20 text-white text-xs px-2 py-1 rounded">Development</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="group relative overflow-hidden rounded-xl shadow-lg">
+                    <img src="images/vintage cafe AI version 1.png" alt="Vintage Cafe" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/80 via-dark/30 to-transparent flex flex-col justify-end p-6">
+                        <h3 class="text-xl font-bold text-white">Vintage Cafe Branding</h3>
+                        <p class="text-gray-200 mt-1">Retro-inspired visual identity system</p>
+                        <div class="mt-3 flex gap-2">
+                            <span class="bg-primary/20 text-white text-xs px-2 py-1 rounded">Brand Identity</span>
+                            <span class="bg-secondary/20 text-white text-xs px-2 py-1 rounded">Packaging</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-10 text-center">
+                <a href="projects.html" class="inline-flex items-center gap-2 border border-primary text-primary hover:bg-primary hover:text-white px-6 py-3 rounded-full transition-colors duration-300">
+                    View Full Portfolio
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </section>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Blog Post 1 -->
+            <article class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow dark:bg-dark dark:border dark:border-gray-700">
+                <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Design Process" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <span class="text-xs font-medium text-primary">Design Tips</span>
+                    <h3 class="text-xl font-bold mt-2 mb-3 dark:text-white">My Creative Process Explained</h3>
+                    <p class="text-slate-600 mb-4 dark:text-slate-300">How I approach design projects from concept to final delivery...</p>
+                    <a href="#" class="text-primary font-medium flex items-center gap-2 dark:text-secondary">
+                        Read More <i class="fas fa-arrow-right text-sm"></i>
+                    </a>
+                </div>
+            </article>
+            
+            <!-- Blog Post 2 -->
+            <article class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow dark:bg-dark dark:border dark:border-gray-700">
+                <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Web Development" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <span class="text-xs font-medium text-primary">Tech Insights</span>
+                    <h3 class="text-xl font-bold mt-2 mb-3 dark:text-white">Essential Tools for Developers</h3>
+                    <p class="text-slate-600 mb-4 dark:text-slate-300">My curated list of must-have tools that boost productivity...</p>
+                    <a href="#" class="text-primary font-medium flex items-center gap-2 dark:text-secondary">
+                        Read More <i class="fas fa-arrow-right text-sm"></i>
+                    </a>
+                </div>
+            </article>
+            
+            <!-- Blog Post 3 -->
+            <article class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow dark:bg-dark dark:border dark:border-gray-700">
+                <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Career Growth" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <span class="text-xs font-medium text-primary">Career Advice</span>
+                    <h3 class="text-xl font-bold mt-2 mb-3 dark:text-white">Building a Portfolio That Stands Out</h3>
+                    <p class="text-slate-600 mb-4 dark:text-slate-300">Key strategies to showcase your work effectively to clients...</p>
+                    <a href="#" class="text-primary font-medium flex items-center gap-2 dark:text-secondary">
+                        Read More <i class="fas fa-arrow-right text-sm"></i>
+                    </a>
+                </div>
+            </article>
+        </div>
+        
+        <div class="mt-10 text-center">
+            <a href="blog.html" class="inline-flex items-center gap-2 border border-primary text-primary hover:bg-primary hover:text-white px-6 py-3 rounded-full transition-colors duration-300 dark:border-gray-600 dark:text-white dark:hover:bg-gray-700">
+                View All Articles
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+   <!-- Newsletter Section -->
+<section class="py-12 animate-fade-in">
+    <div class="flex items-center mb-8">
+        <div class="w-1 h-16 bg-gradient-to-b from-primary to-secondary rounded-full mr-4"></div>
+        <h2 class="text-3xl font-bold">Stay Updated</h2>
+    </div>
+    
+    <div class="bg-white dark:bg-slate-700 rounded-xl shadow-md p-8 max-w-2xl mx-auto">
+        <h3 class="text-2xl font-semibold text-center mb-2 dark:text-white">Join My Newsletter</h3>
+        <p class="text-slate-600 dark:text-slate-300 text-center mb-6">Get design tips, resources, and updates straight to your inbox</p>
+        
+        <form action="https://formsubmit.co/mwas9611@gmail.com" method="POST" class="space-y-4">
+            <!-- Honeypot for spam prevention -->
+            <input type="text" name="_honey" style="display: none">
+            
+            <!-- enable Captcha -->
+            <input type="hidden" name="_captcha" value="true">
+            <input type="hidden" name="_template" value="table"> <!-- Better email formatting -->
+            <!-- Success Redirect (optional) -->
+            <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html">
+            
+            <div>
+                <input type="text" name="name" placeholder="Your Name" class="w-full px-4 py-3 border border-gray-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-slate-800 dark:text-white">
+            </div>
+            <div>
+                <input type="email" name="email" placeholder="Your Email" required class="w-full px-4 py-3 border border-gray-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-slate-800 dark:text-white">
+            </div>
+            <button type="submit" class="w-full bg-primary hover:bg-primary/90 text-white font-medium py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2">
+                <i class="fas fa-paper-plane"></i> Subscribe
+            </button>
+        </form>
+        
+        <p class="text-xs text-slate-500 dark:text-slate-400 mt-4 text-center">I respect your privacy. Unsubscribe at any time.</p>
+    </div>
+</section>
+
+        <!-- Testimonials Section -->
+        <section class="py-12 animate-fade-in">
+            <div class="flex items-center mb-8">
+                <div class="w-1 h-16 bg-gradient-to-b from-primary to-secondary rounded-full mr-4"></div>
+                <h2 class="text-3xl font-bold">Client Experiences</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card h-64">
+                    <div class="testimonial-inner relative w-full h-full">
+                        <div class="testimonial-front bg-white p-6 rounded-xl shadow-md flex flex-col justify-center items-center text-center">
+                            <img src="https://randomuser.me/api/portraits/women/43.jpg" class="w-16 h-16 rounded-full mb-4 border-4 border-primary/20">
+                            <h4 class="font-bold text-lg">Sarah K.</h4>
+                            <p class="text-sm text-slate-500">CEO, RanaTec</p>
+                            <div class="mt-4 text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="testimonial-back bg-primary text-white p-6 rounded-xl flex flex-col justify-center">
+                            <p class="italic mb-4">"DesignSV transformed our brand identity completely. The logo perfectly captures our tech-forward approach while maintaining approachability."</p>
+                            <p class="text-sm">- Project: Brand Redesign</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card h-64">
+                    <div class="testimonial-inner relative w-full h-full">
+                        <div class="testimonial-front bg-white p-6 rounded-xl shadow-md flex flex-col justify-center items-center text-center">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-16 h-16 rounded-full mb-4 border-4 border-primary/20">
+                            <h4 class="font-bold text-lg">James M.</h4>
+                            <p class="text-sm text-slate-500">Founder, Vintage Cafe</p>
+                            <div class="mt-4 text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="testimonial-back bg-primary text-white p-6 rounded-xl flex flex-col justify-center">
+                            <p class="italic mb-4">"The website DesignSV created increased our online orders by 140%. Their understanding of user experience is exceptional."</p>
+                            <p class="text-sm">- Project: E-Commerce Site</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card h-64">
+                    <div class="testimonial-inner relative w-full h-full">
+                        <div class="testimonial-front bg-white p-6 rounded-xl shadow-md flex flex-col justify-center items-center text-center">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" class="w-16 h-16 rounded-full mb-4 border-4 border-primary/20">
+                            <h4 class="font-bold text-lg">Amina W.</h4>
+                            <p class="text-sm text-slate-500">Marketing Director</p>
+                            <div class="mt-4 text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                        <div class="testimonial-back bg-primary text-white p-6 rounded-xl flex flex-col justify-center">
+                            <p class="italic mb-4">"Working with DesignSV on our content strategy was a game-changer. They helped us find our brand voice and triple our engagement."</p>
+                            <p class="text-sm">- Project: Content Strategy</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section class="py-12 animate-fade-in">
+            <div class="flex items-center mb-8">
+                <div class="w-1 h-16 bg-gradient-to-b from-primary to-secondary rounded-full mr-4"></div>
+                <h2 class="text-3xl font-bold">My Journey</h2>
+            </div>
+            
+            <div class="relative pl-8 sm:pl-12 before:absolute before:left-0 before:top-0 before:h-full before:w-1 before:bg-gradient-to-b before:from-primary before:to-secondary">
+                <!-- Timeline Item 1 -->
+                <div class="relative pb-10 group">
+                    <div class="absolute left-0 top-1 -translate-x-1/2 transform w-4 h-4 rounded-full bg-primary border-4 border-white group-hover:bg-secondary transition-colors z-10"></div>
+                    <div class="pl-8">
+                        <h3 class="text-xl font-bold mb-1">2020 - The Beginning</h3>
+                        <p class="text-slate-600">Started self-teaching design and development through online resources while working full-time in another field</p>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 2 -->
+                <div class="relative pb-10 group">
+                    <div class="absolute left-0 top-1 -translate-x-1/2 transform w-4 h-4 rounded-full bg-primary border-4 border-white group-hover:bg-secondary transition-colors z-10"></div>
+                    <div class="pl-8">
+                        <h3 class="text-xl font-bold mb-1">2021 - First Clients</h3>
+                        <p class="text-slate-600">Completed initial freelance projects for local businesses, focusing on logo design and basic websites</p>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 3 -->
+                <div class="relative pb-10 group">
+                    <div class="absolute left-0 top-1 -translate-x-1/2 transform w-4 h-4 rounded-full bg-primary border-4 border-white group-hover:bg-secondary transition-colors z-10"></div>
+                    <div class="pl-8">
+                        <h3 class="text-xl font-bold mb-1">2022 - Elite Design SV</h3>
+                        <p class="text-slate-600">Officially launched my creative studio to deliver professional design services at scale</p>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 4 -->
+                <div class="relative pb-10 group">
+                    <div class="absolute left-0 top-1 -translate-x-1/2 transform w-4 h-4 rounded-full bg-primary border-4 border-white group-hover:bg-secondary transition-colors z-10"></div>
+                    <div class="pl-8">
+                        <h3 class="text-xl font-bold mb-1">2023 - Expansion</h3>
+                        <p class="text-slate-600">Began working with international clients and expanded service offerings to include full-stack development</p>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 5 -->
+                <div class="relative group">
+                    <div class="absolute left-0 top-1 -translate-x-1/2 transform w-4 h-4 rounded-full bg-primary border-4 border-white group-hover:bg-secondary transition-colors z-10"></div>
+                    <div class="pl-8">
+                        <h3 class="text-xl font-bold mb-1">2024 - Present</h3>
+                        <p class="text-slate-600">Focusing on creating impactful digital experiences while mentoring aspiring designers and developers</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact CTA Section -->
+        <section id="contact" class="py-12 bg-gradient-to-r from-primary to-secondary rounded-2xl animate-fade-in">
+            <div class="text-center text-white px-4">
+                <h2 class="text-3xl font-bold mb-4">Ready to Create Something Amazing?</h2>
+                <p class="text-lg text-white/90 max-w-2xl mx-auto mb-8">
+                    Whether you need a stunning website, memorable branding, or compelling content - I'd love to hear about your project.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="mailto:mwas9611@gmail.com" class="bg-white text-primary hover:bg-gray-100 px-6 py-3 rounded-full font-medium transition-colors flex items-center justify-center gap-2">
+                        <i class="fas fa-envelope"></i> Email Me
+                    </a>
+                    <a href="https://wa.me/+254799438981" class="bg-dark/90 hover:bg-dark text-white px-6 py-3 rounded-full font-medium transition-colors flex items-center justify-center gap-2">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+                
+                <div class="mt-10 flex justify-center gap-6">
+                    <a href="#" class="text-white hover:text-gray-200 transition-colors">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-gray-200 transition-colors">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-gray-200 transition-colors">
+                        <i class="fab fa-dribbble text-xl"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-gray-200 transition-colors">
+                        <i class="fab fa-behance text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="about.js"></script>
+</body>
+</html>

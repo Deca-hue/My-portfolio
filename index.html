@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DesignSV is your one-stop solution for logo design, web development, and branding. Explore our creative portfolio and elevate your brand.">
+    <title>DesignSV Portfolio | Creative Design Solutions</title>
+    <link rel="icon" href="images/android-chrome-192x192.png" type="image/x-icon">
+    
+<!-- In your <head> -->
+    <style id="preloader-style">
+        #preloader {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: #ffffff;
+          z-index: 9999;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        
+        .preloader-logo {
+          position: relative;
+          width: 120px;
+          height: 120px;
+          margin-bottom: 25px;
+        }
+        
+        .logo-part {
+          position: absolute;
+          background: #4f46e5;
+          border-radius: 8px;
+          animation: logo-bounce 1.8s infinite ease-in-out;
+        }
+        
+        /* DesignSV logo parts - creates a abstract "D" and "SV" shape */
+        .part1 { /* D stem */
+          width: 20px;
+          height: 80px;
+          left: 20px;
+          top: 20px;
+          animation-delay: -0.16s;
+        }
+        
+        .part2 { /* D curve */
+          width: 40px;
+          height: 40px;
+          left: 40px;
+          top: 20px;
+          border-radius: 50% 50% 50% 0;
+          transform: rotate(45deg);
+          animation-delay: -0.32s;
+        }
+        
+        .part3 { /* S */
+          width: 25px;
+          height: 15px;
+          left: 70px;
+          top: 30px;
+          border-radius: 15px;
+          animation-delay: -0.48s;
+        }
+        
+        .part4 { /* V */
+          width: 0;
+          height: 0;
+          left: 70px;
+          top: 55px;
+          border-left: 12px solid transparent;
+          border-right: 12px solid transparent;
+          border-bottom: 30px solid #4f46e5;
+          background: transparent !important;
+          animation-delay: -0.64s;
+        }
+        
+        @keyframes logo-bounce {
+          0%, 80%, 100% { 
+            transform: scale(0.8);
+            opacity: 0.5;
+          }
+          40% { 
+            transform: scale(1.1);
+            opacity: 1;
+          }
+        }
+        
+        .preloader-text {
+          font-family: 'Roboto', sans-serif;
+          color: #4f46e5;
+          font-size: 1.2rem;
+          margin-top: 20px;
+          position: relative;
+        }
+        
+        .preloader-text:after {
+          content: "...";
+          position: absolute;
+          animation: ellipsis 1.5s infinite;
+          width: 20px;
+        }
+        
+        @keyframes ellipsis {
+          0% { content: "."; }
+          33% { content: ".."; }
+          66% { content: "..."; }
+        }
+        
+        .progress-track {
+          width: 200px;
+          height: 4px;
+          background: #e5e7eb;
+          margin: 20px 0;
+          border-radius: 2px;
+          overflow: hidden;
+        }
+        
+        .progress-bar {
+          height: 100%;
+          background: #4f46e5;
+          width: 0%;
+          transition: width 0.4s ease;
+          border-radius: 2px;
+        }
+      </style>
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" as="style">
+    <link rel="preload" href="css/main.css" as="style">
+    
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://api.github.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+
+<body class="font-roboto bg-gray-50 text-gray-800 antialiased">
+
+    <!-- Update preloader HTML -->
+    <div id="preloader">
+        <div class="preloader-logo">
+          <div class="logo-part part1"></div>
+          <div class="logo-part part2"></div>
+          <div class="logo-part part3"></div>
+          <div class="logo-part part4"></div>
+        </div>
+        <div class="progress-track">
+          <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <div class="preloader-text">Loading</div>
+      </div>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-indigo-700">DesignSV</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <button class="md:hidden focus:outline-none" id="mobile-menu-button">
+                <i class="fas fa-bars text-2xl text-gray-700"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white w-full py-2 px-4 shadow-md" id="mobile-menu">
+            <a href="#about" class="block py-2 nav-link">About</a>
+            <a href="#services" class="block py-2 nav-link">Services</a>
+            <a href="#projects" class="block py-2 nav-link">Projects</a>
+            <a href="#contact" class="block py-2 nav-link">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 md:px-6 max-w-6xl">
+         <!-- Hero Section -->
+         <header class="py-20 text-center animate-fade">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 text-indigo-700 animate-slide">Welcome to DesignSV</h1>
+            <p class="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto">Your one-stop solution for creative design projects.</p>
+            <a href="#projects" class="mt-8 inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105">
+                Explore My Work
+            </a>
+        </header>
+
+        <!-- About Section -->
+        <section id="about" class="py-16 animate-fade">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">About Us</h2>
+            <div class="bg-white rounded-xl shadow-lg p-8 max-w-4xl mx-auto">
+                <h1 class="text-2xl md:text-3xl font-bold mb-4 text-indigo-600">Hi there! I'm Design SV</h1>
+                <p class="text-lg text-gray-700 mb-6">
+                    I'm a passionate Frontend Web Developer, Logo Designer, and Content Writer. My journey in the creative industry 
+                    started several years ago, driven by a love for combining technical skill and artistic vision.
+                </p>
+                <a href="about.html" class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-6 rounded-lg transition duration-300">
+                    Learn More
+                </a>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-16 bg-gray-100 animate-slide">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">What We Offer</h2>
+            <p class="text-center text-lg text-gray-600 max-w-2xl mx-auto mb-12">
+                At DesignSV, we bring your visions to life with our comprehensive suite of services in graphic design, logo design, and web development.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- T-Shirt Design -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                    <div class="p-6">
+                        <div class="text-indigo-600 text-4xl mb-4">
+                            <i class="fas fa-tshirt"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">T-Shirt Design</h3>
+                        <p class="text-gray-600 mb-4">We focus on creating designs that effectively communicate your brand's message.</p>
+                        <div class="grid grid-cols-2 gap-2">
+                            <img src="images/uga ngwe canva.svg" alt="T-shirt design" class="rounded-lg object-cover h-32 w-full">
+                            <img src="images/umetoa lock canva black.svg" alt="T-shirt design" class="rounded-lg object-cover h-32 w-full">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Logo Design -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                    <div class="p-6">
+                        <div class="text-indigo-600 text-4xl mb-4">
+                            <i class="fas fa-pen-fancy"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Logo Design</h3>
+                        <p class="text-gray-600 mb-4">We create memorable logos that capture the essence of your business.</p>
+                        <div class="grid grid-cols-2 gap-2">
+                            <img src="images/ranatec logo coloured.jpg" alt="Logo design" class="rounded-lg object-cover h-32 w-full">
+                            <img src="images/snowbell logo comp1" alt="Logo design" class="rounded-lg object-cover h-32 w-full">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web Development -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                    <div class="p-6">
+                        <div class="text-indigo-600 text-4xl mb-4">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Web Development</h3>
+                        <p class="text-gray-600 mb-4">We build responsive, user-friendly websites tailored to your needs.</p>
+                        <div class="grid grid-cols-2 gap-2">
+                            <img src="images/2024-10-15 (1).png" alt="Web design" class="rounded-lg object-cover h-32 w-full">
+                            <img src="images/2024-11-03 (1).pngaa" alt="Web design" class="rounded-lg object-cover h-32 w-full">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-16">
+            <h2 class="text-3xl font-bold text-center mb-4 text-gray-800">Our Projects</h2>
+            <p class="text-center text-lg text-gray-600 max-w-2xl mx-auto mb-12">
+                Explore our collection of open-source projects on GitHub. Each project showcases our commitment to quality and innovation.
+            </p>
+            
+            <!-- GitHub Projects will be loaded here -->
+           <!-- Skeleton Cards that will transform into real projects -->
+  <div id="github-projects" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Skeleton cards will be inserted here by JavaScript -->
+  </div>
+            
+            <div class="text-center">
+                <button id="load-projects" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-8 rounded-lg transition duration-300">
+                    Explore My Projects
+                </button>
+            </div>
+        </section>
+
+<!-- Live Projects Section -->
+<section id="live-projects" class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-10">
+        <h2 class="section-title">Live Demos</h2>
+        <p class="section-description max-w-2xl mx-auto">
+          Experience our work in action! These projects are currently deployed and ready to explore.
+        </p>
+        <div class="mt-4">
+          <span class="inline-block bg-green-100 text-green-800 text-sm px-3 py-1 rounded-full">
+            <i class="fas fa-bolt mr-1"></i> Click to interact
+          </span>
+        </div>
+      </div>
+      
+      <div id="vercel-projects" class="projects-grid"></div>
+    </div>
+  </section>
+  
+  <section class="performance-stats py-8 bg-white">
+    <div class="container mx-auto px-4 text-center">
+      <h3 class="text-lg font-medium text-gray-700 mb-2">
+        <i class="fas fa-chart-line text-indigo-600 mr-2"></i>
+        Live Project Analytics
+      </h3>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+        <div class="stat-card">
+          <div class="stat-number" id="total-visits">1,240+</div>
+          <div class="stat-label">Total Visits</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" id="active-projects">5</div>
+          <div class="stat-label">Active Projects</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" id="avg-duration">2:45</div>
+          <div class="stat-label">Avg. Visit Duration</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" id="user-count">840+</div>
+          <div class="stat-label">Unique Users</div>
+        </div>
+      </div>
+      <p class="text-sm text-gray-500 mt-4">
+        <i class="fas fa-info-circle mr-1"></i>
+        Stats update every 24 hours
+      </p>
+    </div>
+  </section>
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 bg-gray-100 rounded-xl">
+            <div class="max-w-4xl mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-6 text-gray-800">Let's Connect</h2>
+                <p class="text-lg text-center text-gray-600 mb-8">
+                    I'm always open to new opportunities and collaborations. Feel free to reach out to me or connect with me on social media.
+                </p>
+                
+                <div class="bg-white rounded-xl shadow-md p-8">
+                    <h3 class="text-2xl font-bold mb-4 text-indigo-600">Contact Us</h3>
+                    <p class="text-gray-700 mb-6">
+                        Partner with DesignSV and let's elevate your brand to new heights. 
+                        <span class="bg-yellow-100 px-2 py-1 rounded">Contact us today to get started!</span>
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="mailto:elitetechservices735@gmail.com" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-6 rounded-lg transition duration-300 text-center">
+                            <i class="fas fa-envelope mr-2"></i> Send Email
+                        </a>
+                        <a href="https://www.linkedin.com/in/elite-design-sv-031412260" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition duration-300 text-center">
+                            <i class="fab fa-linkedin-in mr-2"></i> LinkedIn
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p class="mb-4">© <span id="currentYear"></span> DesignSV. All rights reserved.</p>
+            <div class="flex justify-center space-x-6">
+                <!-- Social links -->
+            </div>
+        </div>
+    </footer>
+<!-- Add this temporarily right before your scripts -->
+<div class="debug-outline">
+  <section id="live-projects" style="margin: 2rem 0; padding: 1rem; border: 2px dashed #ccc;">
+    <h2 style="color: red;">DEBUG CONTAINER</h2>
+    <div id="vercel-projects"></div>
+  </section>
+</div>
+    <!-- JavaScript Files -->
+    <script src="js/animations.js" defer></script>
+    <script src="js/githubProjects.js" defer></script>
+    <script src="js/vercelProjects.js" defer></script>
+    <script src="js/main.js" defer></script>
+</body>
+</html>

@@ -5,27 +5,27 @@ class VercelProjects {
     // TEST WITH THESE DEMO PROJECTS FIRST
     this.projects = [
       {
-        title: "Your Project Name",
-        description: "Short description",
+        title: "NFT Website",
+        description: "custom made NFT website",
         url: "https://nft-website-custom.vercel.app/", // MUST include https://
         githubUrl: "https://Deca-hue/your/repo",
         tags: ["React", "Tailwind"],
         featured: true // Optional
       },
       {
-        title: "Example Live App",
-        description: "Test project to verify live demos are working",
+        title: "AUTO PHOTO LOADER",
+        description: "Test project showing live state",
         url: "https://auto-photo-loader.vercel.app/", // Using Next.js site as test URL
         githubUrl: "https://Deca-hue/vercel/next.js", // Test GitHub URL
-        tags: ["Test", "Demo"],
+        tags: ["html", "tailwind", "javascript"],
         featured: true
       },
       {
-        title: "Example Coming Soon",
-        description: "Test project showing coming soon state",
+        title: "Online Fitness Tracker",
+        description: "A fitness tracker app",
         url: "https//online-fitness-tracker.vercel.app/" ,
         githubUrl: "https://github.com",
-        tags: ["Test", "Demo"],
+        tags: ["html", "tailwind", "javascript"],
         featured: true
       }
     ];

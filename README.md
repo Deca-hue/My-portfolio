@@ -3,7 +3,7 @@
 Welcome to **Designsv**, a high-performance, fully responsive developer portfolio tailored to highlight my expertise in **frontend development**, **UI/UX design**, and **interactive web experiences**.  
 This project is built using modern technologies including **HTML5**, **Tailwind CSS**, and **JavaScript**, with a focus on clean architecture, visual storytelling, and real-world performance.
 
-[🌐 Live Demo](https://your-username.github.io/designsv) &nbsp; | &nbsp; [📩 Contact Me](mailto:mwas9611l@gmail.com) &nbsp; | &nbsp; [📄 Resume](./assets/YourResume.pdf)
+[🌐 Live Demo](https://my-portfolio-two-eta-13.vercel.app/) &nbsp; | &nbsp; [📩 Contact Me](mailto:mwas9611l@gmail.com) &nbsp; | &nbsp; [📄 Resume](./assets/YourResume.pdf)
 ---
 
 ## 🧠 About the Project
@@ -99,7 +99,7 @@ I’m actively open to:
 - Collaboration with creatives and founders  
 
 📧 **Email:** mwas9611@gmail.com  
-🌍 **Website:** [https://your-username.github.io/designsv](https://your-username.github.io/designsv)  
+🌍 **Website:** [https://your-username.github.io/designsv](https://my-portfolio-two-eta-13.vercel.app/)
 📄 **Resume:** [Download PDF](./assets/YourResume.pdf)  
 🔗 **LinkedIn / GitHub / Portfolio links available in footer**
 

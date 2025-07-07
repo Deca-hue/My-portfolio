@@ -10,28 +10,42 @@ class GitHubProjects {
         this.init();
     }
     
-    async init() {
-        if (this.loadButton) {
-            this.loadButton.addEventListener('click', () => this.loadProjects());
-        }
+   async init() {
+    // Optionally remove the load button from the DOM
+    if (this.loadButton) {
+        this.loadButton.style.display = 'none';
     }
+    // Automatically load projects on initialization
+    await this.loadProjects();
+}
     
-    async fetchProjects() {
-        try {
-            // Replace with your GitHub username
-            const username = 'Deca-hue';
-            const response = await fetch(`https://api.github.com/users/${username}/repos`);
-            
+   async fetchProjects() {
+    try {
+        const username = 'Deca-hue';
+        let allRepos = [];
+        let page = 1;
+        let perPage = 100; // GitHub allows up to 100 per page
+        let hasMore = true;
+
+        while (hasMore) {
+            const response = await fetch(`https://api.github.com/users/${username}/repos?page=${page}&per_page=${perPage}`);
             if (!response.ok) {
                 throw new Error(`GitHub API error: ${response.status}`);
             }
-            
-            return await response.json();
-        } catch (error) {
-            console.error('Error fetching GitHub projects:', error);
-            return null;
+            const repos = await response.json();
+            allRepos = allRepos.concat(repos);
+            if (repos.length < perPage) {
+                hasMore = false;
+            } else {
+                page++;
+            }
         }
+        return allRepos;
+    } catch (error) {
+        console.error('Error fetching GitHub projects:', error);
+        return null;
     }
+}
     
     async loadProjects() {
         // Show loading state
@@ -52,7 +66,7 @@ class GitHubProjects {
         
         // Update button text
         if (this.loadButton) {
-            this.loadButton.textContent = 'Load More Projects';
+            this.loadButton.textContent = '';
         }
     }
     
@@ -76,7 +90,7 @@ class GitHubProjects {
         }
         
         // Increment page for next load
-        this.currentPage++;
+        //this.currentPage++;
     }
     
     createProjectCard(project) {
@@ -133,7 +147,7 @@ class GitHubProjects {
                 <i class="fas fa-exclamation-triangle text-4xl text-yellow-500 mb-4"></i>
                 <h3 class="text-xl font-medium text-gray-700 mb-2">Failed to load projects</h3>
                 <p class="text-gray-600 mb-4">Please try again later or check my GitHub profile directly.</p>
-                <a href="https://github.com/your-github-username" target="_blank" 
+                <a href="https://github.com/Deca-hue" target="_blank" 
                    class="inline-block bg-gray-800 hover:bg-gray-700 text-white font-medium py-2 px-6 rounded-lg transition duration-300">
                     Visit GitHub <i class="fas fa-external-link-alt ml-1"></i>
                 </a>
@@ -143,30 +157,61 @@ class GitHubProjects {
         if (this.loadButton) {
             this.loadButton.innerHTML = '<i class="fas fa-redo mr-2"></i> Try Again';
             this.loadButton.disabled = false;
-            this.loadButton.addEventListener('click', () => this.loadProjects());
+            // Remove previous event listeners to avoid stacking
+            const newButton = this.loadButton.cloneNode(true);
+            this.loadButton.parentNode.replaceChild(newButton, this.loadButton);
+            this.loadButton = newButton;
         }
     }
-    
+
     showPagination() {
-        const totalPages = Math.ceil(this.totalProjects / this.projectsPerPage);
-        
-        const paginationContainer = document.createElement('div');
-        paginationContainer.className = 'pagination';
-        
-        if (this.currentPage > 2) {
-            paginationContainer.appendChild(this.createPageItem(1, '<<'));
-        }
-        
-        for (let i = this.currentPage; i <= Math.min(this.currentPage + 2, totalPages); i++) {
-            paginationContainer.appendChild(this.createPageItem(i));
-        }
-        
-        if (this.currentPage + 2 < totalPages) {
-            paginationContainer.appendChild(this.createPageItem(totalPages, '>>'));
-        }
-        
-        this.projectsContainer.parentNode.insertBefore(paginationContainer, this.projectsContainer.nextSibling);
+    const totalPages = Math.ceil(this.totalProjects / this.projectsPerPage);
+
+    // Remove any existing pagination
+    const existingPagination = this.projectsContainer.parentNode.querySelector('.pagination');
+    if (existingPagination) {
+        existingPagination.remove();
     }
+
+    const paginationContainer = document.createElement('div');
+    paginationContainer.className = 'pagination flex justify-center gap-4 mt-6';
+
+    // Previous button
+    const prevButton = document.createElement('button');
+    prevButton.textContent = 'Previous';
+    prevButton.className = 'page-link px-4 py-2 rounded bg-gray-200 hover:bg-gray-300 font-medium';
+    prevButton.disabled = this.currentPage === 1;
+    prevButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (this.currentPage > 1) {
+            this.currentPage--;
+            this.loadProjects();
+        }
+    });
+    paginationContainer.appendChild(prevButton);
+
+    // Page info
+    const pageInfo = document.createElement('span');
+    pageInfo.textContent = `Page ${this.currentPage} of ${totalPages}`;
+    pageInfo.className = 'text-gray-600 font-medium';
+    paginationContainer.appendChild(pageInfo);
+
+    // Next button
+    const nextButton = document.createElement('button');
+    nextButton.textContent = 'Next';
+    nextButton.className = 'page-link px-4 py-2 rounded bg-gray-200 hover:bg-gray-300 font-medium';
+    nextButton.disabled = this.currentPage === totalPages;
+    nextButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (this.currentPage < totalPages) {
+            this.currentPage++;
+            this.loadProjects();
+        }
+    });
+    paginationContainer.appendChild(nextButton);
+
+    this.projectsContainer.parentNode.insertBefore(paginationContainer, this.projectsContainer.nextSibling);
+}
     
     createPageItem(pageNumber, label = null) {
         const pageItem = document.createElement('div');
@@ -190,7 +235,7 @@ class GitHubProjects {
         pageItem.appendChild(pageLink);
         return pageItem;
     }
-}
+} 
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {

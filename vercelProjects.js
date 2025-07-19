@@ -32,6 +32,16 @@ class VercelProjects {
         tags: ["html", "tailwind", "javascript"],
         featured: true,
         image: "projects.screenshots/fitnessapp.png" // Optional image URL
+      },
+
+       {
+        title: "Online Fitness Tracker",
+        description: "A fitness tracker app",
+        url: "https://online-fitness-tracker.vercel.app/" ,
+        githubUrl: "https://github.com",
+        tags: ["html", "tailwind", "javascript"],
+        featured: true,
+        image: "projects.screenshots/fitnessapp.png" // Optional image URL
       }
     // Add more projects as needed
     ];
@@ -59,9 +69,9 @@ class VercelProjects {
     const visibleProjects = this.projects.slice(start, end);
 
     let html = `
-      <div class="relative flex items-center">
+      <div class="relative flex items-center overflow-x-auto">
     
-        <div class="flex-1 flex justify-center gap-8 mx-20">
+        <div class="flex gap-8 px-2 py-4 min-w-[320px]">
           ${visibleProjects.map(project => `
             <div class="project-card live-card bg-white rounded-lg shadow-md p-6 flex flex-col gap-4 w-80">
               <div class="card-image-container mb-4 relative">

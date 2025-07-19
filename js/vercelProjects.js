@@ -63,15 +63,12 @@ class VercelProjects {
   /**rendering projects */
  renderProjects() {
   try {
-    const projectsPerPage = 3;
-    const start = this.currentIndex;
-    const end = Math.min(start + projectsPerPage, this.projects.length);
-    const visibleProjects = this.projects.slice(start, end);
+    const visibleProjects = this.projects;
 
     let html = `
-      <div class="relative flex items-center overflow-x-auto">
+      <div class="relative overflow-x-auto px-4 py-2">
     
-        <div class="flex gap-8 px-2 py-4 min-w-[320px]">
+        <div class="flex gap-6 px-2 py-4 min-w-fit w-max">
           ${visibleProjects.map(project => `
             <div class="project-card live-card bg-white rounded-lg shadow-md p-6 flex flex-col gap-4 w-80">
               <div class="card-image-container mb-4 relative">
@@ -125,31 +122,13 @@ class VercelProjects {
         </div>
   
       </div>
-      <div class="text-center text-sm text-gray-500 mt-2">
-        Showing ${start + 1}–${end} of ${this.projects.length} projects
-      </div>
+      
     `;
     this.projectsContainer.innerHTML = html;
 
     // Navigation logic
-    const prevBtn = document.getElementById('prev-project');
-    const nextBtn = document.getElementById('next-project');
-    if (prevBtn) {
-      prevBtn.addEventListener('click', () => {
-        if (this.currentIndex > 0) {
-          this.currentIndex = Math.max(0, this.currentIndex - projectsPerPage);
-          this.renderProjects();
-        }
-      });
-    }
-    if (nextBtn) {
-      nextBtn.addEventListener('click', () => {
-        if ((this.currentIndex + projectsPerPage) < this.projects.length) {
-          this.currentIndex = Math.min(this.projects.length - projectsPerPage, this.currentIndex + projectsPerPage);
-          this.renderProjects();
-        }
-      });
-    }
+   
+    const projectCards = this.projectsContainer.querySelectorAll('.project-card');
     console.log("Projects rendered successfully");
   } catch (error) {
     console.error("Error rendering projects:", error);

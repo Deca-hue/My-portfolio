@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Live Project Previews</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <header class="bg-indigo-600 text-white p-4 text-center text-xl font-bold">
+    Live Project Previews
+  </header>
+  <main class="p-6 max-w-7xl mx-auto">
+    <div id="vercel-projects" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
+  </main>
+  <!-- Load your external JS file -->
+  <script src="js\vercelProjects.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      new VercelProjects();
+    });
+  </script>
+</body>
+</html>

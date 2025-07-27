@@ -112,5 +112,5 @@ All code in this repository is under the [MIT License](LICENSE). Project designs
 ---
 
 > “Good design is obvious. Great design is transparent. Great code makes it feel alive.”  
-> — *Designsv by [Your Name]*
+> — *Designsv by [@GHOST]*
 

@@ -66,6 +66,27 @@ class ScrollAnimations {
     }
 }
 
+  // Animate the progress bar to 100% over 1.5 seconds with percentage
+window.addEventListener('DOMContentLoaded', () => {
+    const bar = document.getElementById('progress-bar');
+    const percent = document.getElementById('progress-percent');
+    if (bar && percent) {
+        let progress = 0;
+        const duration = 1500; // ms
+        const interval = 15; // ms
+        const step = 100 / (duration / interval);
+
+        const animate = setInterval(() => {
+            progress += step;
+            if (progress >= 100) {
+                progress = 100;
+                clearInterval(animate);
+            }
+            bar.style.width = progress + '%';
+            percent.textContent = Math.round(progress) + '%';
+        }, interval);
+    }
+});
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     new ScrollAnimations();

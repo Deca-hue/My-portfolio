@@ -127,6 +127,7 @@
           transition: width 0.4s ease;
           border-radius: 2px;
         }
+ 
       </style>
     <!-- Preload critical resources -->
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" as="style">
@@ -164,8 +165,9 @@
     <!-- Navigation -->
     <nav class="bg-white shadow-sm sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-indigo-700">DesignSV</a>
+            <h1 class="text-2xl font-bold text-indigo-700">DesignSV</h1>
             <div class="hidden md:flex space-x-8">
+                <a href="#Home" class="nav-link">Home</a>
                 <a href="#about" class="nav-link">About</a>
                 <a href="#services" class="nav-link">Services</a>
                 <a href="#projects" class="nav-link">Projects</a>
@@ -177,6 +179,7 @@
         </div>
         <!-- Mobile Menu -->
         <div class="md:hidden hidden bg-white w-full py-2 px-4 shadow-md" id="mobile-menu">
+            <a href="#Home" class="block py-2 nav-link">Home</a>
             <a href="#about" class="block py-2 nav-link">About</a>
             <a href="#services" class="block py-2 nav-link">Services</a>
             <a href="#projects" class="block py-2 nav-link">Projects</a>
@@ -187,7 +190,7 @@
     <!-- Main Content -->
     <div class="container mx-auto px-4 md:px-6 max-w-6xl">
          <!-- Hero Section -->
-         <header class="py-20 text-center animate-fade">
+         <header id="Home" class="py-20 text-center animate-fade">
             <h1 class="text-4xl md:text-6xl font-bold mb-4 text-indigo-700 animate-slide">Welcome to DesignSV</h1>
             <p class="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto">Your one-stop solution for creative design projects.</p>
             <a href="#projects" class="mt-8 inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105">
@@ -195,75 +198,146 @@
             </a>
         </header>
 
-        <!-- About Section -->
-        <section id="about" class="py-16 animate-fade">
-            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">About Me</h2>
-            <div class="bg-white rounded-xl shadow-lg p-8 max-w-4xl mx-auto">
-                <h1 class="text-2xl md:text-3xl font-bold mb-4 text-indigo-600">Hi there! I'm Design SV</h1>
-                <p class="text-lg text-gray-700 mb-6">
-                    I'm a passionate Frontend Web Developer, Logo Designer, and Content Writer. My journey in the creative industry 
-                    started several years ago, driven by a love for combining technical skill and artistic vision.
-                </p>
-                <a href="about.html" class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-6 rounded-lg transition duration-300">
-                    Learn More
-                </a>
+       <!-- About Section -->
+<section id="about" class="py-20 bg-gray-50">
+  <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center md:items-start gap-10">
+    
+    <!-- Profile Image -->
+    <div class="flex-shrink-0 w-48 h-48 rounded-full overflow-hidden shadow-lg ring-4 ring-indigo-500 mx-auto md:mx-0">
+      <img src="https://via.placeholder.com/300x300.png?text=Design+SV" alt="Design SV" class="w-full h-full object-cover">
+    </div>
+
+    <!-- Text Content -->
+    <div class="flex-1 text-center md:text-left">
+      <h2 class="text-3xl font-bold text-gray-800 mb-4">About Me</h2>
+         <h3 class="text-2xl font-bold text-indigo-600 mb-4">Hi there! I'm <span class="underline decoration-indigo-500">Design SV</span></h3>
+      <p class="text-lg text-gray-700 leading-relaxed mb-6">
+        I’m a passionate <span class="font-semibold">Frontend Web Developer</span>, Logo Designer, and Content Writer.  
+        Over the past few years, I’ve sharpened my craft — building responsive websites, creating unique brand identities, and crafting content that connects.  
+        My mission is to blend <span class="text-indigo-600 font-semibold">creativity</span> and <span class="text-indigo-600 font-semibold">code</span> to design digital experiences that leave a lasting impression.
+      </p>
+      <p class="text-lg text-gray-700 leading-relaxed mb-8">
+        Outside of work, I love experimenting with new UI trends, sketching logo concepts, and turning simple ideas into polished products. Every project is a new adventure 🚀
+      </p>
+      <a href="about.html" 
+         class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-6 rounded-lg transition duration-300">
+        Learn More
+      </a>
+
+      <!-- Quick Stats (Optional) -->
+      <div class="mt-10 grid grid-cols-3 gap-4 text-center md:text-left">
+        <div>
+          <h4 class="text-3xl font-bold text-indigo-600 count" data-target="4">0</h4>
+          <p class="text-gray-600 text-sm">Years Experience</p>
+        </div>
+        <div>
+          <h4 class="text-3xl font-bold text-indigo-600 count" data-target="50">0</h4>
+          <p class="text-gray-600 text-sm">Projects Completed</p>
+        </div>
+        <div>
+          <h4 class="text-3xl font-bold text-indigo-600 count" data-target="30">0</h4>
+          <p class="text-gray-600 text-sm">Happy Clients</p>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+     <!-- Services Section -->
+<section id="services" class="py-20 bg-gray-100">
+  <div class="container mx-auto px-4">
+    <!-- Header -->
+    <div class="text-center mb-12" data-aos="fade-up">
+      <h2 class="text-3xl font-bold text-gray-800 mb-3">What I Offer</h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        At <span class="font-semibold text-indigo-600">DesignSV</span>, we bring your visions to life with our comprehensive suite of services — from bold graphic design to modern web development.
+      </p>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+      <!-- T-Shirt Design -->
+      <div class="bg-white rounded-xl shadow-md hover:shadow-xl transform hover:-translate-y-1 transition duration-300 overflow-hidden group" data-aos="fade-up">
+        <div class="p-6">
+          <div class="text-indigo-600 text-4xl mb-4 group-hover:scale-110 transition">
+            <i class="fas fa-tshirt"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2">T-Shirt Design</h3>
+          <p class="text-gray-600 mb-4">
+            Eye-catching designs that communicate your brand’s message through wearable art.
+          </p>
+          <div class="grid grid-cols-2 gap-2">
+            <div class="relative overflow-hidden rounded-lg h-32">
+              <img src="images/uga ngwe canva.svg" alt="T-shirt design"
+                   class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110">
+              <div class="absolute inset-0 bg-black bg-opacity-30 opacity-0 group-hover:opacity-100 transition"></div>
             </div>
-        </section>
-
-        <!-- Services Section -->
-        <section id="services" class="py-16 bg-gray-100 animate-slide">
-            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">What I Offer</h2>
-            <p class="text-center text-lg text-gray-600 max-w-2xl mx-auto mb-12">
-                At DesignSV, we bring your visions to life with our comprehensive suite of services in graphic design, logo design, and web development.
-            </p>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- T-Shirt Design -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-                    <div class="p-6">
-                        <div class="text-indigo-600 text-4xl mb-4">
-                            <i class="fas fa-tshirt"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3">T-Shirt Design</h3>
-                        <p class="text-gray-600 mb-4">We focus on creating designs that effectively communicate your brand's message.</p>
-                        <div class="grid grid-cols-2 gap-2">
-                            <img src="images/uga ngwe canva.svg" alt="T-shirt design" class="rounded-lg object-cover h-32 w-full">
-                            <img src="images/coconut ke mockup 2.png" alt="T-shirt design" class="rounded-lg object-cover h-32 w-full">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Logo Design -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-                    <div class="p-6">
-                        <div class="text-indigo-600 text-4xl mb-4">
-                            <i class="fas fa-pen-fancy"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3">Logo Design</h3>
-                        <p class="text-gray-600 mb-4">We create memorable logos that capture the essence of your business.</p>
-                        <div class="grid grid-cols-2 gap-2">
-                            <img src="images/ranatec logo coloured.jpg" alt="Logo design" class="rounded-lg object-cover h-32 w-full">
-                            <img src="images/vintage cafe AI version 1.png" alt="Logo design" class="rounded-lg object-cover h-32 w-full">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Web Development -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-                    <div class="p-6">
-                        <div class="text-indigo-600 text-4xl mb-4">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3">Web Development</h3>
-                        <p class="text-gray-600 mb-4">We build responsive, user-friendly websites tailored to your needs.</p>
-                        <div class="grid grid-cols-2 gap-2">
-                            <img src="projects.screenshots/nft.png" alt="Web design" class="rounded-lg object-cover h-32 w-full">
-                            <img src="projects.screenshots/fitnessapp.png" alt="Web design" class="rounded-lg object-cover h-32 w-full">
-                        </div>
-                    </div>
-                </div>
+            <div class="relative overflow-hidden rounded-lg h-32">
+              <img src="images/coconut ke mockup 2.png" alt="T-shirt design"
+                   class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110">
+              <div class="absolute inset-0 bg-black bg-opacity-30 opacity-0 group-hover:opacity-100 transition"></div>
             </div>
-        </section>
+          </div>
+        </div>
+      </div>
+
+      <!-- Logo Design -->
+      <div class="bg-white rounded-xl shadow-md hover:shadow-xl transform hover:-translate-y-1 transition duration-300 overflow-hidden group" data-aos="fade-up" data-aos-delay="100">
+        <div class="p-6">
+          <div class="text-indigo-600 text-4xl mb-4 group-hover:scale-110 transition">
+            <i class="fas fa-pen-fancy"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Logo Design</h3>
+          <p class="text-gray-600 mb-4">
+            Memorable logos that capture the essence of your brand and make a lasting impression.
+          </p>
+          <div class="grid grid-cols-2 gap-2">
+            <div class="relative overflow-hidden rounded-lg h-32">
+              <img src="images/ranatec logo coloured.jpg" alt="Logo design"
+                   class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110">
+              <div class="absolute inset-0 bg-black bg-opacity-30 opacity-0 group-hover:opacity-100 transition"></div>
+            </div>
+            <div class="relative overflow-hidden rounded-lg h-32">
+              <img src="images/vintage cafe AI version 1.png" alt="Logo design"
+                   class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110">
+              <div class="absolute inset-0 bg-black bg-opacity-30 opacity-0 group-hover:opacity-100 transition"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Web Development -->
+      <div class="bg-white rounded-xl shadow-md hover:shadow-xl transform hover:-translate-y-1 transition duration-300 overflow-hidden group" data-aos="fade-up" data-aos-delay="200">
+        <div class="p-6">
+          <div class="text-indigo-600 text-4xl mb-4 group-hover:scale-110 transition">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Web Development</h3>
+          <p class="text-gray-600 mb-4">
+            Responsive, user-friendly websites built to deliver smooth experiences across all devices.
+          </p>
+          <div class="grid grid-cols-2 gap-2">
+            <div class="relative overflow-hidden rounded-lg h-32">
+              <img src="projects.screenshots/nft.png" alt="Web design"
+                   class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110">
+              <div class="absolute inset-0 bg-black bg-opacity-30 opacity-0 group-hover:opacity-100 transition"></div>
+            </div>
+            <div class="relative overflow-hidden rounded-lg h-32">
+              <img src="projects.screenshots/fitnessapp.png" alt="Web design"
+                   class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110">
+              <div class="absolute inset-0 bg-black bg-opacity-30 opacity-0 group-hover:opacity-100 transition"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 
         <!-- Projects Section -->
         <section id="projects" class="py-16">
@@ -286,75 +360,223 @@
         </section>
 
 <!-- Live Projects Section -->
-<section id="live-projects" class="py-12 bg-gray-50">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-10">
-        <h2 class="section-title">Live Demos</h2>
-        <p class="section-description max-w-2xl mx-auto">
-          Experience our work in action! These projects are currently deployed and ready to explore.
-        </p>
-        <div class="mt-4">
-          <span class="inline-block bg-green-100 text-green-800 text-sm px-3 py-1 rounded-full">
-            <i class="fas fa-bolt mr-1"></i> Click to interact
-          </span>
-        </div>
+<section id="live-projects" class="py-16 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <!-- Section Header -->
+    <div class="text-center mb-12" data-aos="fade-up">
+      <h2 class="text-3xl font-bold text-gray-800 mb-3">Live Demos</h2>
+      <p class="text-gray-600 max-w-2xl mx-auto">
+        Experience our work in action! These projects are currently deployed and ready to explore.
+      </p>
+      <div class="mt-4">
+        <span class="inline-block bg-green-100 text-green-800 text-sm px-3 py-1 rounded-full">
+          <i class="fas fa-bolt mr-1"></i> Click to interact
+        </span>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-    <!-- Project 1 -->
-    <a href="https://nft-landing-page-demo.vercel.app/" target="_blank" class="block bg-white rounded-xl shadow-md hover:shadow-lg transition p-6 group">
-      <img src="projects.screenshots/nft.png" alt="NFT Landing Page" class="rounded-lg mb-4 h-40 w-full object-cover group-hover:scale-105 transition">
-      <h3 class="text-xl font-semibold text-indigo-700 mb-2">NFT Landing Page</h3>
-      <p class="text-gray-600 text-sm">A modern NFT landing page with smooth animations and responsive design.</p>
-    </a>
-    <!-- Project 2 -->
-    <a href="https://fitness-app-demo.vercel.app/" target="_blank" class="block bg-white rounded-xl shadow-md hover:shadow-lg transition p-6 group">
-      <img src="projects.screenshots/fitnessapp.png" alt="Fitness App" class="rounded-lg mb-4 h-40 w-full object-cover group-hover:scale-105 transition">
-      <h3 class="text-xl font-semibold text-indigo-700 mb-2">Fitness App</h3>
-      <p class="text-gray-600 text-sm">A fitness tracking web app with interactive charts and user profiles.</p>
-    </a>
-    <!-- Project 3 -->
-    <a href="https://portfolio-elite.vercel.app/" target="_blank" class="block bg-white rounded-xl shadow-md hover:shadow-lg transition p-6 group">
-      <img src="images/ranatec logo coloured.jpg" alt="Portfolio Website" class="rounded-lg mb-4 h-40 w-full object-cover group-hover:scale-105 transition">
-      <h3 class="text-xl font-semibold text-indigo-700 mb-2">Portfolio Website</h3>
-      <p class="text-gray-600 text-sm">A personal portfolio site showcasing design and development skills.</p>
-    </a>
-  
-  </section>
-  <button onclick="window.open('live-previews.html', '_blank')"
-  class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700">
-  🔗 View All Live Previews
-</button>
+    </div>
 
-  <!--<section class="performance-stats py-8 bg-white">
-    <div class="container mx-auto px-4 text-center">
-      <h3 class="text-lg font-medium text-gray-700 mb-2">
-        <i class="fas fa-chart-line text-indigo-600 mr-2"></i>
-        Live Project Analytics
-      </h3>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
-        <div class="stat-card">
-          <div class="stat-number" id="total-visits">1,240+</div>
-          <div class="stat-label">Total Visits</div>
+    <!-- Projects Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- Project 1 -->
+      <div class="bg-white rounded-xl shadow-md hover:shadow-xl transform hover:-translate-y-1 transition p-5 group" data-aos="fade-up">
+        <div class="relative rounded-lg overflow-hidden mb-4 h-44">
+          <img src="projects.screenshots/nft.png" alt="NFT Landing Page"
+               class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+          <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+            <i class="fas fa-external-link-alt text-white text-2xl"></i>
+          </div>
         </div>
-        <div class="stat-card">
-          <div class="stat-number" id="active-projects">5</div>
-          <div class="stat-label">Active Projects</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number" id="avg-duration">2:45</div>
-          <div class="stat-label">Avg. Visit Duration</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number" id="user-count">840+</div>
-          <div class="stat-label">Unique Users</div>
+        <h3 class="text-xl font-semibold mb-1">
+          <a href="https://nft-landing-page-demo.vercel.app/"
+             target="_blank" rel="noopener"
+             class="text-indigo-700 hover:underline inline-block"
+             aria-label="Open NFT Landing Page live demo"
+             title="Open NFT Landing Page live demo">
+            NFT Landing Page
+          </a>
+        </h3>
+        <p class="text-gray-600 text-sm mb-3">A modern NFT landing page with smooth animations and responsive design.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-indigo-100 text-indigo-700 text-xs px-2 py-1 rounded-full">Tailwind CSS</span>
+          <span class="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full">HTML</span>
+          <span class="bg-green-100 text-green-700 text-xs px-2 py-1 rounded-full">Responsive</span>
         </div>
       </div>
-      <p class="text-sm text-gray-500 mt-4">
-        <i class="fas fa-info-circle mr-1"></i>
-        Stats update every 24 hours
+
+      <!-- Project 2 -->
+      <div class="bg-white rounded-xl shadow-md hover:shadow-xl transform hover:-translate-y-1 transition p-5 group" data-aos="fade-up" data-aos-delay="100">
+        <div class="relative rounded-lg overflow-hidden mb-4 h-44">
+          <img src="projects.screenshots/fitnessapp.png" alt="Fitness App"
+               class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+          <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+            <i class="fas fa-external-link-alt text-white text-2xl"></i>
+          </div>
+        </div>
+        <h3 class="text-xl font-semibold mb-1">
+          <a href="https://fitness-app-demo.vercel.app/"
+             target="_blank" rel="noopener"
+             class="text-indigo-700 hover:underline inline-block"
+             aria-label="Open Fitness App live demo"
+             title="Open Fitness App live demo">
+            Fitness App
+          </a>
+        </h3>
+        <p class="text-gray-600 text-sm mb-3">A fitness tracking web app with interactive charts and user profiles.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-indigo-100 text-indigo-700 text-xs px-2 py-1 rounded-full">JavaScript</span>
+          <span class="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full">Charts</span>
+          <span class="bg-green-100 text-green-700 text-xs px-2 py-1 rounded-full">Responsive</span>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="bg-white rounded-xl shadow-md hover:shadow-xl transform hover:-translate-y-1 transition p-5 group" data-aos="fade-up" data-aos-delay="200">
+        <div class="relative rounded-lg overflow-hidden mb-4 h-44">
+          <img src="images/ranatec logo coloured.jpg" alt="Portfolio Website"
+               class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+          <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+            <i class="fas fa-external-link-alt text-white text-2xl"></i>
+          </div>
+        </div>
+        <h3 class="text-xl font-semibold mb-1">
+          <a href="https://portfolio-elite.vercel.app/"
+             target="_blank" rel="noopener"
+             class="text-indigo-700 hover:underline inline-block"
+             aria-label="Open Portfolio Website live demo"
+             title="Open Portfolio Website live demo">
+            Portfolio Website
+          </a>
+        </h3>
+        <p class="text-gray-600 text-sm mb-3">A personal portfolio site showcasing design and development skills.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-indigo-100 text-indigo-700 text-xs px-2 py-1 rounded-full">Portfolio</span>
+          <span class="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full">Tailwind CSS</span>
+          <span class="bg-green-100 text-green-700 text-xs px-2 py-1 rounded-full">Animations</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- Live Previews Section button -->
+<section id="live-previews" class="py-16 text-center bg-gray-50">
+  <h2 class="text-2xl md:text-3xl font-bold mb-6 text-gray-800">
+    Explore More Projects
+  </h2>
+  <p class="text-gray-600 mb-8 max-w-xl mx-auto">
+    Dive into my full collection of interactive demos and frontend experiments.
+  </p>
+  <button 
+    onclick="window.open('live-previews.html', '_blank')" 
+    class="relative overflow-hidden px-6 py-3 rounded-lg text-white font-medium bg-gradient-to-r from-indigo-600 to-purple-600 
+           hover:from-indigo-700 hover:to-purple-700 shadow-lg shadow-indigo-500/30 
+           transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl">
+    🔗 View All Live Previews
+  </button>
+</section>
+
+
+ <!-- Testimonials Section -->
+<section id="testimonials" class="py-20 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <!-- Header -->
+    <div class="text-center mb-12" data-aos="fade-up">
+      <h2 class="text-3xl font-bold text-gray-800 mb-3">What Clients Say</h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        Real feedback from partners and clients who experienced the <span class="text-indigo-600 font-semibold">DesignSV</span> difference.
       </p>
     </div>
-  </section>-->
+
+    <!-- Testimonials Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- Testimonial 2 -->
+      <div class="testimonial-card h-64 [perspective:1000px]" data-aos="fade-up">
+        <div class="testimonial-inner relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group hover:[transform:rotateY(180deg)]">
+          
+          <!-- Front -->
+          <div class="testimonial-front absolute inset-0 bg-white p-6 rounded-xl shadow-md flex flex-col justify-center items-center text-center backface-hidden">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="James M."
+                 class="w-16 h-16 rounded-full mb-4 border-4 border-indigo-100">
+            <h4 class="font-bold text-lg text-gray-800">James M.</h4>
+            <p class="text-sm text-slate-500">Founder, Vintage Cafe</p>
+            <div class="mt-4 text-yellow-400">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+
+          <!-- Back -->
+          <div class="testimonial-back absolute inset-0 bg-indigo-600 text-white p-6 rounded-xl flex flex-col justify-center items-center text-center rotate-y-180 backface-hidden">
+            <p class="italic mb-4">"The website DesignSV created increased our online orders by 140%. Their understanding of user experience is exceptional."</p>
+            <p class="text-sm opacity-90">– Project: E-Commerce Site</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="testimonial-card h-64 [perspective:1000px]" data-aos="fade-up" data-aos-delay="100">
+        <div class="testimonial-inner relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group hover:[transform:rotateY(180deg)]">
+          
+          <!-- Front -->
+          <div class="testimonial-front absolute inset-0 bg-white p-6 rounded-xl shadow-md flex flex-col justify-center items-center text-center backface-hidden">
+            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Amina W."
+                 class="w-16 h-16 rounded-full mb-4 border-4 border-indigo-100">
+            <h4 class="font-bold text-lg text-gray-800">Amina W.</h4>
+            <p class="text-sm text-slate-500">Marketing Director</p>
+            <div class="mt-4 text-yellow-400">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+          </div>
+
+          <!-- Back -->
+          <div class="testimonial-back absolute inset-0 bg-indigo-600 text-white p-6 rounded-xl flex flex-col justify-center items-center text-center rotate-y-180 backface-hidden">
+            <p class="italic mb-4">"Working with DesignSV on our content strategy was a game-changer. They helped us find our brand voice and triple our engagement."</p>
+            <p class="text-sm opacity-90">– Project: Content Strategy</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 4 (Optional example) -->
+      <div class="testimonial-card h-64 [perspective:1000px]" data-aos="fade-up" data-aos-delay="200">
+        <div class="testimonial-inner relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group hover:[transform:rotateY(180deg)]">
+          
+          <!-- Front -->
+          <div class="testimonial-front absolute inset-0 bg-white p-6 rounded-xl shadow-md flex flex-col justify-center items-center text-center backface-hidden">
+            <img src="https://randomuser.me/api/portraits/men/18.jpg" alt="Kevin L."
+                 class="w-16 h-16 rounded-full mb-4 border-4 border-indigo-100">
+            <h4 class="font-bold text-lg text-gray-800">Kevin L.</h4>
+            <p class="text-sm text-slate-500">Tech Startup CEO</p>
+            <div class="mt-4 text-yellow-400">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+
+          <!-- Back -->
+          <div class="testimonial-back absolute inset-0 bg-indigo-600 text-white p-6 rounded-xl flex flex-col justify-center items-center text-center rotate-y-180 backface-hidden">
+            <p class="italic mb-4">"They delivered a sleek landing page ahead of schedule. DesignSV is our go-to for frontend brilliance."</p>
+            <p class="text-sm opacity-90">– Project: SaaS Landing Page</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
         <!-- Contact Section -->
         <section id="contact" class="py-16 bg-gray-100 rounded-xl">
             <div class="max-w-4xl mx-auto px-4">
@@ -408,13 +630,32 @@
             </div>
         </div>
     </footer>
-<!-- Add this temporarily right before your scripts -->
-<div class="debug-outline" style="display: none;">
-  <section id="live-projects" style="margin: 2rem 0; padding: 1rem; border: 2px dashed #ccc;">
-    <h2 style="color: red;">DEBUG CONTAINER</h2>
-    <div id="vercel-projects"></div>
-  </section>
-</div>
+<script>
+  window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    const progressBar = document.getElementById('progress-bar');
+    const progressPercent = document.getElementById('progress-percent');
+
+    if (preloader) {
+      // Animate progress bar to 100%
+      progressBar.style.width = '100%';
+      progressPercent.textContent = '100%';
+
+      // Fade out the preloader after a short delay
+      setTimeout(() => {
+        preloader.style.opacity = '0';
+        preloader.style.visibility = 'hidden';
+        preloader.style.pointerEvents = 'none';
+      }, 500);
+
+      // Fully remove from DOM after fade
+      setTimeout(() => {
+        preloader.remove();
+      }, 1000);
+    }
+  });
+</script>
+
     <!-- JavaScript Files -->
     <script src="js/animations.js" defer></script>
     <script src="js/githubProjects.js" defer></script>

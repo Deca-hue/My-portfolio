@@ -92,6 +92,56 @@ function setupIntersectionObserver() {
         observer.observe(section);
     });
 }
+/* Remove/hide preloader after window fully loads */
+window.addEventListener('load', () => {
+  const pre = document.getElementById('preloader');
+  if (!pre) return;
+
+  // smooth hide
+  pre.classList.add('hidden');
+
+  // optional: remove element after animation so it can't block anything
+  setTimeout(() => {
+    if (pre.parentNode) pre.parentNode.removeChild(pre);
+  }, 400);
+});
+
+// Animated Counters in About Section
+const counters = document.querySelectorAll('.count');
+  let hasAnimated = false;
+
+  function animateCounters() {
+    counters.forEach(counter => {
+      const target = +counter.getAttribute('data-target');
+      const duration = 1800;
+      const startTime = performance.now();
+
+      function update(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        counter.textContent = Math.floor(progress * target);
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        } else {
+          counter.textContent = target + (counter.dataset.target.includes('+') ? '+' : '');
+        }
+      }
+      requestAnimationFrame(update);
+    });
+  }
+
+  // Trigger when section scrolls into view
+  const aboutSection = document.getElementById('about');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !hasAnimated) {
+        animateCounters();
+        hasAnimated = true;
+      }
+    });
+  }, { threshold: 0.5 });
+
+  observer.observe(aboutSection);
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', setupIntersectionObserver);
